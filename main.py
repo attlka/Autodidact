@@ -1,4 +1,4 @@
-#Discord bot that answer questions about the "Pixar's Cars" wiki (https://pixar.fandom.com/wiki/Cars) with GPT-III. Huge amount of critical information there that future generations will need to access.
+#Discord bot that answers questions about the "Pixar's Cars" wiki (https://pixar.fandom.com/wiki/Cars) with GPT-III. Huge amount of critical information there that future generations will need to access.
 
 
 import discord
@@ -37,7 +37,7 @@ async def on_message(message):
     user_message = message.content
     answer = generate_answer(user_message)
     if answer == '':
-        await message.channel.send('Sorry, I don\'t understand.')
+        await message.channel.send('Sorry, I dont understand.')
     else:
         await message.channel.send(answer)
 
