@@ -1,7 +1,6 @@
-#Create a Discord bot that answer questions about the "Pixar's Cars" wiki (https://pixar.fandom.com/wiki/Cars) with GPT-III.
+#Discord bot that answer questions about the "Pixar's Cars" wiki (https://pixar.fandom.com/wiki/Cars) with GPT-III. Huge amount of critical information there that future generations will need to access.
 
 
-#Importing the libraries
 import discord
 from discord.ext import commands
 import requests
@@ -11,34 +10,23 @@ import os
 import time
 import asyncio
 
-#Importing the GPT-3 model
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
-#Importing the token
 TOKEN = os.environ.get('DISCORD_TOKEN')
 
-#Setting the bot
+#bot settings
 bot = commands.Bot(command_prefix='!')
 
-#Setting the tokenizer and the model
+#haven't set up GPT3 api access yet, using GPT2 as placeholder for time being
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 model = GPT2LMHeadModel.from_pretrained("gpt2")
-
-#Setting the max length of the answer
 max_length = 40
 
-
-
-
-#Setting the bot
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
 
-
-
-
-#Setting the bot
+#bot answer scripting
 @bot.event
 async def on_message(message):
     #Avoiding the bot to answer itself
@@ -60,9 +48,7 @@ async def on_message(message):
         await message.channel.send(answer)
 
 
-
-
-#Function that generates an answer from a user's message with GPT-3 model and tokenizer 
+#Function that generates an answer from a user's message with GPT-3 model and tokenizer
 def generate_answer(user_message):
 
     #If there is no user's message, we return an empty string (no answer) 
@@ -72,19 +58,19 @@ def generate_answer(user_message):
     #Else, we generate an answer from a user's message with GPT-3 model and tokenizer 
     else:
 
-        #We encode the user's message with GPT-3 tokenizer 
+        #Encodes the user's message with GPT-3 tokenizer 
         input_ids = tokenizer.encode(user_message + tokenizer.eos_token, return_tensors='pt')
 
-        #We set a maximum length for the generated text 
+        #Set a max length for the generated text 
         max_length = 40
 
-        #We set a minimum length for the generated text 
+        #Sets a minimum length for the generated text 
         min_length = 15
 
-        #We set a temperature for our text generation process 
+        #Sets a temperature for our text generation process 
         temperature = 0.7
 
-        #We set a top k or top p value for our text generation process 
+        #Sets a top k or top p value for our text generation process 
         top_k = 0       #If top k is 0, we generate all words of our text generation process 
 
         top_p = 0.9     #If top p is 1, we generate all words of our text generation process 
