@@ -11,7 +11,7 @@ import openai
 import time
 import asyncio
 
-TOKEN = os.environ.get() #add discord key
+TOKEN = os.environ.get(OPENAI_KEY) #add discord key
 
 #bot settings
 bot = commands.Bot(command_prefix='!')
