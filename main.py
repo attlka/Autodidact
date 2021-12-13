@@ -7,19 +7,20 @@ import requests
 import json
 import re
 import os
+import openai
 import time
 import asyncio
 
-from transformers import GPT2Tokenizer, GPT2LMHeadModel
-
-TOKEN = os.environ.get('DISCORD_TOKEN')
+TOKEN = os.environ.get() #add discord key
 
 #bot settings
 bot = commands.Bot(command_prefix='!')
 
-#haven't set up GPT3 api access yet, using GPT2 as placeholder for time being
-tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-model = GPT2LMHeadModel.from_pretrained("gpt2")
+#haven't set up GPT3 api access yet, gonna have to rework this whole part w/ the chronology library (https://github.com/OthersideAI/chronology)
+
+tokenizer =
+model = #
+openai.api_key = os.getenv() #add openai key
 max_length = 40
 
 @bot.event
