@@ -1,0 +1,9 @@
+pip install --upgrade openai
+
+export OPENAI_API_KEY=<aOPENAI_KEY> #Github Secret
+
+#Adding custom Model
+openai api #Need to add custom model targeting wiki
+
+#Using custom Model
+openai api completions.create -m < > #sample from OA doc
