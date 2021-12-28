@@ -25,7 +25,7 @@ max_length = 40
 
 @bot.event
 async def on_ready():
-    print(f'{bot.user.name} has connected to Discord!')
+    print(f'{bot.user.name} is dialed in!')
 
 #bot answer scripting
 @bot.event
@@ -38,7 +38,7 @@ async def on_message(message):
     user_message = message.content
     answer = generate_answer(user_message)
     if answer == '':
-        await message.channel.send('Sorry, I dont understand.')
+        await message.channel.send('Hmm, Im not sure I quite understand.')
     else:
         await message.channel.send(answer)
 
