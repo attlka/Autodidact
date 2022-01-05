@@ -3,15 +3,13 @@
 
 import discord
 from discord.ext import commands
-import requests
 import json
-import re
 import os
 import openai
-import time
 import asyncio
 
-TOKEN = os.environ.get() #add discord key
+#add discord key
+TOKEN = os.environ.get(key= 239f0e664d11fa8a00ea3ee099a4da7f7d0bab975a5fc2360763f4b974df12e5)
 
 #bot settings
 bot = commands.Bot(command_prefix='!')
@@ -72,3 +70,4 @@ def generate_answer(user_message):
 
 #Running the bot
 bot.run(TOKEN)
+
