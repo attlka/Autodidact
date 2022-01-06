@@ -36,9 +36,6 @@ class MyClient(discord.Client):
         if message.author.id == self.user.id:
             return
 
-        if message.content == "Hello":
-            await message.channel.send("World")
-
         elif message.content == "!myello":  #summons bot
 
             await message.channel.send("What do you want to know about Cars Deep Lore?")

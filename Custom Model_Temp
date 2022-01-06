@@ -1,9 +1,15 @@
-pip install --upgrade openai
+import os
+import openai
 
-export OPENAI_API_KEY=<OPENAI_KEY> #Github Secret
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
-#Adding custom Model
-openai api #Need to add custom model targeting wiki
-
-#Using custom Model
-openai api completions.create -m <> #sample from OA doc
+response = openai.Completion.create(
+  engine="davinci",
+  prompt="", #set this to input
+  temperature=0.18,
+  max_tokens=63,
+  top_p=1,
+  frequency_penalty=0.68,
+  presence_penalty=0.52,
+  stop=["Question"]
+)
